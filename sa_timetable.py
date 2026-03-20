@@ -125,6 +125,7 @@ def run_sa(
     clash_log      : list -- best clashes at each iteration (for plotting)
     temp_log       : list -- temperature at each iteration (for plotting)
     """
+    random.seed(seed)
   current   = [random.randint(0, NUM_SLOTS - 1) for _ in range(NUM_EXAMS)]
     current_c = count_clashes(current)
     best      = current[:]
@@ -270,5 +271,3 @@ tt4, clashes4, cl4, tl4 = run_sa(
 print_timetable(tt4)
 print(f"  Final clashes : {clashes4}")
 save_plot(cl4, tl4, "plots/experiment_2c.png", "cooling_rate=0.995")
-
-    random.seed(seed)
